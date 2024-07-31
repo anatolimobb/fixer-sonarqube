@@ -33,9 +33,9 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env: 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-          orgnization: ${{ secrets.SONAR_ORGANIZATION }}
+          INPUT_ARGS: >
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
 
       - name: Run Mobb on the findings and get fixes
         if: always()
