@@ -37,6 +37,8 @@ jobs:
           args: >
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+            -Dsonar.qualitygate.wait=true
+            -Dsonar.java.skipUnchanged=false
 
       - name: Run Mobb on the findings and get fixes
         if: always()
